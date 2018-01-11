@@ -1,0 +1,9 @@
+display_interval(){ HOURS=$(expr $1 / 3600); MINUTES=$(expr $1 / 60); SECONDS=$(expr $1 % 60); echo "hours:$HOURS minutes:$MINUTES seconds:$SECONDS" ; }
+
+/*Paste this to track time logged in on a PBE/Production/Vagrant box */
+
+START=$(date +%s); 
+watch -n5 'display_interval(){ HOURS=$(expr $1 / 3600); MINUTES=$(expr $1 / 60); SECONDS=$(expr $1 % 60); echo "hours:$HOURS minutes:$MINUTES seconds:$SECONDS" ; };
+ RESULT=$(($(date +%s)  - '$START'));
+ echo $(display_interval $RESULT)'
+
